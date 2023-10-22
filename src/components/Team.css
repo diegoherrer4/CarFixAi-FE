@@ -1,0 +1,22 @@
+/* Team.css */
+
+/* Styles for the Team component */
+#team {
+    text-align: center;
+  }
+  
+  .container {
+    /* Add container styles here */
+  }
+  
+  .section-title {
+    /* Add styles for the section title here */
+  }
+  
+  /* Styles for the CarForm component */
+  #car-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
