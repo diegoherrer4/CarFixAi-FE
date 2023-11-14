@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button } from '@mui/material'
+import ResultModal from './ResultModal';
+import { useState } from 'react';
 
 const buttonStyle = {
     width: '250px',
@@ -31,19 +33,33 @@ const buttonStyle = {
     }
   };
   
-  makeApiRequest();
 
 function FindIssuesButton() {
+    const [openModal, setOpenModal] = useState(false);
 
-    const handleFindIssuesClick = () => {
-        makeApiRequest();
-        // Add any additional logic if needed
+    const handleFindIssuesClick = async () => {
+        try {
+          await makeApiRequest();
+          setOpenModal(true);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+      
+
+      const handleCloseModal = () => {
+        setOpenModal(false);
       };
 
 
   return (
 
-    <Button style={buttonStyle} variant="contained" onClick={handleFindIssuesClick}>Find possible issues</Button>
+    <>
+    <Button style={buttonStyle} variant="contained" onClick={handleFindIssuesClick}>
+      Find possible issues
+    </Button>
+    <ResultModal open={openModal} onClose={handleCloseModal} />
+  </>
   )
 }
 
