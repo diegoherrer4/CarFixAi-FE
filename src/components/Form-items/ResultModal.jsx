@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Paper, Typography } from '@mui/material';
 
-function ResultModal({ open, onClose }) {
+function ResultModal({ open, onClose, results }) {
   return (
     <Modal open={open} onClose={onClose}>
       <Paper style={{ 
@@ -15,14 +15,9 @@ function ResultModal({ open, onClose }) {
         overflowY: 'auto', // Enable vertical scrolling if the content exceeds maxHeight
         padding: '20px' 
       }}>
-        <Typography variant="h5">Result Modal</Typography>
-        <p>Your result content goes here...</p>
-        {/* Add your result content here */}
-        {/* Add more content to see the scrollbar in action */}
-        {/* Add more content to see the scrollbar in action */}
-        {/* Add more content to see the scrollbar in action */}
-        {/* Add more content to see the scrollbar in action */}
-        {/* Add more content to see the scrollbar in action */}
+        <Typography variant="h5">Diagnostic...</Typography>
+        
+
       </Paper>
     </Modal>
   );

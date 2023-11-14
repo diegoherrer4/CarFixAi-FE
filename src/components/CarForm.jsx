@@ -18,7 +18,28 @@ const Dropdowns = styled.div`
   // justify-content: space-evenly;
   // margin: 50px; /* Add margin to separate the dropdowns */
 `;
+const makeApiRequest = async () => {
+  const data = {
+    model: 'gpt-3.5-turbo',
+    messages: [{ role: 'user', content: 'Your message here' }],
+    temperature: 0.7,
+  };
 
+  try {
+    const response = await fetch('/api/openai', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log('Assistant Response:', result.assistantResponse);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
 
 
 function CarForm() {
