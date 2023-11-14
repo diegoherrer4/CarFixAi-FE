@@ -4,7 +4,10 @@
     "paragraph": "This user-friendly AI car diagnosis app not only enables users to input symptoms or prompts for issue identification but also offers DIY-friendly guidance, allowing owners to tackle some of the maintenance or repairs themselves, ultimately promoting self-sufficiency and cost savings."
   },
   "About": {
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paragraph": "1. Select your car details: Begin by choosing the year, make, and model of your car from the available options. This ensures that the diagnostic process is tailored to the specific characteristics of your vehicle.",
+    "paragraph2": "2. Symptom Check or Custom Prompt: Opt for a quick symptom check to explore common issues associated with your car's make and model. Alternatively, create a custom prompt to describe specific symptoms you've observed. The flexibility allows you to pinpoint your car's unique problems.",
+    "paragraph3": "3. AI Analysis: Once you've inputted the necessary details, our advanced AI system takes over. It thoroughly analyzes the symptoms or custom prompt and cross-references them with a vast database of automotive issues. ",
+    "paragraph4": "4. Issue Identification: The AI swi`ftly identifies the most common issues related to the symptoms you provided or suggests potential problems based on your custom prompt. This step ensures a comprehensive diagnosis.",
     "Why": [
       "Lorem ipsum dolor",
       "Tempor incididunt",
