@@ -16,7 +16,7 @@ const Label = styled.label`
 
 
 
-function CustomPrompt() {
+function CustomPrompt({ onChange }) {
 
     const [prompt, setPrompt] = useState("");
 
@@ -28,6 +28,7 @@ function CustomPrompt() {
             <Input
               type="text"
               id="custom-prompt"
+              value={prompt}
               placeholder="Write your specific issue here..."
               onChange={(e) => setPrompt(e.target.value)}
             />

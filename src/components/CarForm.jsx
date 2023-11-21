@@ -18,39 +18,19 @@ const Dropdowns = styled.div`
   // justify-content: space-evenly;
   // margin: 50px; /* Add margin to separate the dropdowns */
 `;
-const makeApiRequest = async () => {
-  const data = {
-    model: 'gpt-3.5-turbo',
-    messages: [{ role: 'user', content: 'Your message here' }],
-    temperature: 0.7,
-  };
 
-  try {
-    const response = await fetch('/api/openai', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-    console.log('Assistant Response:', result.assistantResponse);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
 
 
 function CarForm() {
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedMake, setSelectedMake] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
-  const [prompt, setPrompt] = useState("");
+  const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+  const [customPrompt, setCustomPrompt] = useState(null);
   const [toggle, setToggle] = useState("symptoms");
 
-    let selectedCar = `${selectedYear} ${selectedMake} ${selectedModel}`
-    console.log(selectedCar)
+  let selectedCar = `${selectedYear} ${selectedMake} ${selectedModel}`;
+  console.log(selectedSymptoms);
 
   const handleYearChange = (year) => {
     setSelectedYear(year);
@@ -71,28 +51,49 @@ function CarForm() {
     setToggle(newToggle);
   };
 
+  
+  const handleSymptomsChange = (symptoms) => {
+    setSelectedSymptoms(symptoms);
+    console.log(symptoms)
+  };
+
+
+  const handleCustomPromptChange = (prompt) => {
+    setCustomPrompt(prompt);
+    console.log(prompt)
+  };
+
   return (
     <>
-    <div>
-      <Dropdowns>
-        <YearDropdown onChange={handleYearChange} selectedYear={selectedYear} />
-        <MakeDropdown onChange={handleMakeChange} selectedMake={selectedMake} />
-        <ModelDropdown onChange={handleModelChange} selectedModel={selectedModel} selectedMake={selectedMake} selectedYear={selectedYear} />
+      <div>
+        <Dropdowns>
+          <YearDropdown onChange={handleYearChange} selectedYear={selectedYear} />
+          <MakeDropdown onChange={handleMakeChange} selectedMake={selectedMake} />
+          <ModelDropdown
+            onChange={handleModelChange}
+            selectedModel={selectedModel}
+            selectedMake={selectedMake}
+            selectedYear={selectedYear}
+          />
+        </Dropdowns>
+        <p>Selected: {selectedYear} {selectedMake} {selectedModel}</p>
+      </div>
+      <div>
+        <ToggleBtn selectedToggle={toggle} onToggleChange={handleToggleChange} />
+        {toggle === 'symptoms' && <Symptoms onSymptomsChange={handleSymptomsChange} />}
+        {toggle === 'custom-prompt' && <CustomPrompt onCustomPromptChange = {handleCustomPromptChange}/>}
+      </div>
+      <div>
+        
+        <FindIssuesButton
+          selectedMake={selectedMake}
+          selectedYear={selectedYear}
+          selectedModel={selectedModel}
+          selectedSymptoms={selectedSymptoms}
+          customPrompt={customPrompt}
 
-      </Dropdowns>
-      <p>
-        Selected: {selectedYear} {selectedMake} {selectedModel}
-      </p>
-
-    </div>
-    <div>
-    <ToggleBtn selectedToggle={toggle} onToggleChange={handleToggleChange} />
-    {toggle === 'symptoms' && <Symptoms />}
-    {toggle === 'custom-prompt' && <CustomPrompt />}
-    </div>
-    <div>
-    <FindIssuesButton />
-    </div>
+        />
+      </div>
     </>
   );
 }

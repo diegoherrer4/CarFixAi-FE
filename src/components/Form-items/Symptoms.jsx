@@ -52,14 +52,27 @@ const options = [
   
 
   
+ 
+
+  function Symptoms({ onSymptomsChange }) {
+    const [selectedSymptoms, setSelectedSymptoms] = useState([]);
   
-
-function Symptoms() {
+    const handleSymptomsChange = (selectedOptions) => {
+      setSelectedSymptoms(selectedOptions);
+      // Pass the selected options to the parent component using the callback function
+      onSymptomsChange(selectedOptions);
+    };
+  
     return (
-        <div style={{ ...customStyle2 }}>
-          <ReactMultiSelectCheckboxes options={options} styles={customStyles}/>
-        </div>
-      );
-    }
-
-export default Symptoms
+      <div style={{ ...customStyle2 }}>
+        <ReactMultiSelectCheckboxes
+          options={options}
+          styles={customStyles}
+          // Remove the onChange prop, as it's handled by handleSymptomsChange
+        />
+      </div>
+    );
+  }
+  
+  export default Symptoms;
+` `  
