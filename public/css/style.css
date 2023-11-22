@@ -215,6 +215,13 @@ a:focus,
   background-size: cover;
   -o-background-size: cover;
 }
+
+@media (max-width: 767px) {
+  .intro {
+    background-size: contain; /* Adjust this property for your specific needs */
+  }
+}
+
 .intro .overlay {
   background: rgba(0, 0, 0, 0.2);
 }
