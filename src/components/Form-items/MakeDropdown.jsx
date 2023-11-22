@@ -61,7 +61,7 @@ function MakeDropdown({ onChange, selectedMake }) {
   return (
     <FormControl fullWidth style={formControlStyle}>
       <InputLabel style={labelStyle} id="select-label">Make</InputLabel>
-    <Select label="Make" value={selectedMake} onChange={(e) => onChange(e.target.value)} style={labelStyle}>
+    <Select label="Make" value={selectedMake} onChange={(e) => onChange(e.target.value)} style={labelStyle} required>
       {makes.map((make) => (
         <MenuItem key={make} value={make} style={labelStyle}>
           {make}

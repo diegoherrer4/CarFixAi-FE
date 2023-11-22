@@ -63,6 +63,7 @@ function ModelDropdown({ onChange, selectedMake, selectedYear}) {
         value={selectedModel}
         onChange={(e) => handleModelChange(e.target.value)}
         style={labelStyle}
+        required
 >
         {models && models.length > 0 ? (
           models.map((model) => (

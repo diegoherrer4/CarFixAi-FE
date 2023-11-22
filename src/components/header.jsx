@@ -1,4 +1,7 @@
 import React from "react";
+import './header.css' 
+
+
 
 export const Header = (props) => {
   return (
@@ -12,7 +15,7 @@ export const Header = (props) => {
                   {props.data ? props.data.title : "Loading"}
                   <span></span>
                 </h1>
-                <p>{props.data ? props.data.paragraph : "Loading"}</p>
+                <p><strong className="lessBold">{props.data ? props.data.paragraph : "Loading"}</strong></p>
                 <a
                   href="#Team"
                   className="btn btn-custom btn-lg page-scroll"

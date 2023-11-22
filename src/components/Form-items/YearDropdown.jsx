@@ -32,6 +32,7 @@ function YearDropdown({ onChange, selectedYear }) {
         value={selectedYear}
         onChange={(e) => onChange(e.target.value)}
         style={labelStyle}
+        required
       >
 
         {years.map((year) => (

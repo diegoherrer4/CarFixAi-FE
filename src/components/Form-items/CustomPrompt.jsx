@@ -1,43 +1,35 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
-import {useState } from 'react'
-
+import { useState } from 'react';
 
 const Input = styled.input`
   width: 300px;
-  height: 40px; /* Adjust the height to make it bigger */
-  margin: 20px; /* Add margin to separate the input field */
+  height: 40px;
+  margin: 20px;
 `;
 
 const Label = styled.label`
-  font-size: 16px; /* Increase font size for labels */
-  margin: 10px 0; /* Add margin to separate labels */
+  font-size: 16px;
+  margin: 10px 0;
 `;
 
-
-
-function CustomPrompt({ onChange }) {
-
-    const [prompt, setPrompt] = useState("");
-
+function CustomPrompt({ onChange, customPrompt }) {
   return (
     <div className="custom-prompt">
-        <form>
-          <Label htmlFor="custom-prompt">
-            Custom prompt:
-            <Input
-              type="text"
-              id="custom-prompt"
-              value={prompt}
-              placeholder="Write your specific issue here..."
-              onChange={(e) => setPrompt(e.target.value)}
-            />
-          </Label>
-          
-        </form>
-        
-      </div>
-  )
+      <form>
+        <Label htmlFor="custom-prompt">
+          Custom prompt:
+          <Input
+            type="text"
+            id="custom-prompt"
+            value={customPrompt}
+            placeholder="Write your specific issue here..."
+            onChange={(e) => onChange(e.target.value)}
+          />
+        </Label>
+      </form>
+    </div>
+  );
 }
 
-export default CustomPrompt
+export default CustomPrompt;

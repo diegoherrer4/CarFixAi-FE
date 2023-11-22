@@ -28,9 +28,10 @@ function CarForm() {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
   const [customPrompt, setCustomPrompt] = useState(null);
   const [toggle, setToggle] = useState("symptoms");
+  
 
   let selectedCar = `${selectedYear} ${selectedMake} ${selectedModel}`;
-  console.log(selectedSymptoms);
+  
 
   const handleYearChange = (year) => {
     setSelectedYear(year);
@@ -81,7 +82,7 @@ function CarForm() {
       <div>
         <ToggleBtn selectedToggle={toggle} onToggleChange={handleToggleChange} />
         {toggle === 'symptoms' && <Symptoms onSymptomsChange={handleSymptomsChange} />}
-        {toggle === 'custom-prompt' && <CustomPrompt onCustomPromptChange = {handleCustomPromptChange}/>}
+        {toggle === 'custom-prompt' && <CustomPrompt onChange = {handleCustomPromptChange}/>}
       </div>
       <div>
         
@@ -91,7 +92,7 @@ function CarForm() {
           selectedModel={selectedModel}
           selectedSymptoms={selectedSymptoms}
           customPrompt={customPrompt}
-
+          toggle={toggle}
         />
       </div>
     </>

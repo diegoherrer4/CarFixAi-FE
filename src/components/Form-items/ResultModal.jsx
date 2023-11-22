@@ -33,7 +33,7 @@ function ResultModal({ open, onClose, results, selectedYear, selectedMake, selec
         setLoadingProgress((prevProgress) =>
           prevProgress >= 100 ? 0 : prevProgress + 10
         );
-      }, 500);
+      }, 3500);
     }
 
     return () => {
@@ -63,30 +63,35 @@ function ResultModal({ open, onClose, results, selectedYear, selectedMake, selec
     }
   }, [results]);
 
+
   const handlePossibleFixesClick = (issue) => {
-    // Check if car details are defined before creating the search term
-    if (selectedYear && selectedMake && selectedModel) {
-      // Use a regex pattern to capture issue details
-      const pattern = /(\d+)\.\s([^:]+):\s([^]+?)\s-\s([\s\S]+)/;
-      const match = issue.match(pattern);
-  
-      if (match && match.length === 5) {
-        const issueNumber = match[1];
-        const issueTitle = match[2];
-        const issueDescription = match[3];
-        const searchTerm = `${selectedYear}+${selectedMake}+${selectedModel}+${issueNumber}+${issueTitle}+${issueDescription}+fix`;
-        const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(
-          searchTerm
-        )}`;
-        window.open(searchUrl, '_blank');
+    try {
+      // Check if car details are defined before creating the search term
+      if (selectedYear && selectedMake && selectedModel) {
+        // Split the issue string into parts based on the format
+        const parts = issue.split('. ');
+        
+        if (parts.length === 2) {
+          const issueNumber = parts[0];
+          const issueDetails = parts[1].split(' - ');
+          const issueTitle = issueDetails[0];
+          const issueDescription = issueDetails.slice(1).join(' - ');
+          
+          const searchTerm = `${selectedYear}+${selectedMake}+${selectedModel}+${issueTitle}+${issueDescription}+fix`;
+          const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(
+            searchTerm
+          )}`;
+          window.open(searchUrl, '_blank');
+        } else {
+          console.error('Failed to extract issue details from the issue string. Parts:', parts);
+        }
       } else {
-        console.error('Failed to extract issue details from the issue string.');
+        console.error('Car details are undefined.');
       }
-    } else {
-      console.error('Car details are undefined.');
+    } catch (error) {
+      console.error('An error occurred while handling possible fixes click:', error);
     }
   };
-  
   
   
   
