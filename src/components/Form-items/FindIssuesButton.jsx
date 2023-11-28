@@ -54,7 +54,7 @@ function FindIssuesButton({
         toggle === 'custom-prompt' && customPrompt
           ? ` or this custom prompt: ${customPrompt}`
           : ''
-      } generate the most common causes with just a brief sentence and explanation, just render the common causes, nothing else `;
+      } generate the most common causes with just a brief sentence and explanation, just render the common causes, nothing else, no introductions, just the answers `;
     console.log(`content: ${content}`);
 
     const data = {
