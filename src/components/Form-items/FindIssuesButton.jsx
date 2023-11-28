@@ -85,7 +85,7 @@ function FindIssuesButton({
 
   const makeApiRequest = async (data) => {
     try {
-      const response = await fetch('http://localhost:5000/api/openai', {
+      const response = await fetch('https://carfix-ai.onrender.com/api/openai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
