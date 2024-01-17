@@ -22,7 +22,7 @@ Needed optimizations:
 
 ## Lessons Learned:
 
-- How to use ChatGPT Api
+- How to use ChatGPT API
 - Reinforced MUI knowledge
 - Reinforced styled components knowledge
 
