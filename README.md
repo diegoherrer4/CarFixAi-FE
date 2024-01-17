@@ -3,7 +3,7 @@ Car DIagnostic App powered by AI
 
 **Link to project:** https://carfixai.net/
 
-![alt tag](./Carfixai.png)
+![alt tag](./Front-end/Carfixai.png)
 
 ## How It's Made:
 
