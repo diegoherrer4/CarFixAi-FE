@@ -8,7 +8,7 @@ const toggleBtn = {
 function ToggleBtn({ selectedToggle, onToggleChange }) {
   const handleToggleChange = (event, newToggle) => {
     if (newToggle !== null) {
-      onToggleChange(newToggle); // Call the callback function to update the state
+      onToggleChange(newToggle); 
     }
   };
 

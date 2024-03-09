@@ -26,7 +26,7 @@ function Symptoms({ onSymptomsChange }) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
 
   const handleSymptomsChange = (selectedOptions) => {
-    // Extract and pass only the values to the parent component
+    //pass only the values to the parent component
     const selectedValues = selectedOptions.map((option) => option.value);
     setSelectedSymptoms(selectedOptions);
     onSymptomsChange(selectedValues);
@@ -38,7 +38,6 @@ function Symptoms({ onSymptomsChange }) {
         options={options}
         styles={customStyles}
         onChange={handleSymptomsChange}
-        // value prop to control the selected options
         value={selectedSymptoms}
       />
     </div>

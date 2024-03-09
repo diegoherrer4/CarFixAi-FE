@@ -12,13 +12,6 @@ import FindIssuesButton from './Form-items/FindIssuesButton';
 
 
 
-const Dropdowns = styled.div`
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-evenly;
-  // margin: 50px; /* Add margin to separate the dropdowns */
-`;
-
 
 
 function CarForm() {
@@ -67,7 +60,6 @@ function CarForm() {
   return (
     <>
       <div>
-        <Dropdowns>
           <YearDropdown onChange={handleYearChange} selectedYear={selectedYear} />
           <MakeDropdown onChange={handleMakeChange} selectedMake={selectedMake} />
           <ModelDropdown
@@ -76,7 +68,6 @@ function CarForm() {
             selectedMake={selectedMake}
             selectedYear={selectedYear}
           />
-        </Dropdowns>
         <p>Selected: {selectedYear} {selectedMake} {selectedModel}</p>
       </div>
       <div>

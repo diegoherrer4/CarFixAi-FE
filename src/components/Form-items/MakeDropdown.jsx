@@ -12,7 +12,7 @@ function MakeDropdown({ onChange, selectedMake }) {
   };
 
   const formControlStyle = {
-    margin: '10px', // Add margin for separation
+    margin: '10px', 
   };
 
 

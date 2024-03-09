@@ -20,7 +20,7 @@ export const Navigation = (props) => {
           </button>
           <a className="navbar-brand page-scroll" href="#page-top">
             CARFIX AI 
-            {/* <img src="../../public/image/favicon.png"/> */}
+            
           </a>{" "}
         </div>
 

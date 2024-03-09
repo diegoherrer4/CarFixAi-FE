@@ -12,12 +12,10 @@ function YearDropdown({ onChange, selectedYear }) {
   };
 
   const formControlStyle = {
-    margin: '10px', // Add margin for separation
+    margin: '10px', 
   };
 
   useEffect(() => {
-    // Fetch a list of years from your data source
-    // For simplicity, we're using a static array here
     const yearsData = Array.from({ length: 2023 - 1996 + 1 }, (_, index) => 1996 + index);
 
     setYears(yearsData);

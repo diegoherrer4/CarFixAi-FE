@@ -10,21 +10,21 @@ function ResultModal({ open, onClose, results, selectedYear, selectedMake, selec
   const listItemStyle = {
     fontFamily: 'Raleway',
     fontSize: '1.5em',
-    padding: '20px', // Added padding for better spacing
+    padding: '20px', 
   };
 
   const buttonStyle = {
     marginLeft: '10px',
     fontSize: '1em',
-    padding: '8px 16px', // Slightly smaller button size
-    backgroundColor: '#4CAF50', // Green color
+    padding: '8px 16px', 
+    backgroundColor: '#4CAF50', 
   };
 
   const dividerStyle = {
-    margin: '20px 0', // Added margin for better separation
+    margin: '20px 0', 
   };
 
-  // Simulate loading progress with a timer
+  //Simulate loading progress with a timer
   useEffect(() => {
     let timer;
 
@@ -41,23 +41,23 @@ function ResultModal({ open, onClose, results, selectedYear, selectedMake, selec
     };
   }, [loading]);
 
-  // Reset loading state when modal is opened
+  
   useEffect(() => {
     if (open) {
       setLoading(true);
       setLoadingProgress(0);
-      setIssueList([]); // Clear the issue list when the modal is opened
+      setIssueList([]); //Reset issue list when the modal is opened
     }
   }, [open]);
 
-  // Handle results and loading state changes
+  //Handle results and loading state changes
   useEffect(() => {
     if (results !== null) {
-      // Results have been received, stop loading
+      
       setLoading(false);
       setLoadingProgress(100);
 
-      // Parse the response and create a list of issues
+      //Create a list of issues
       const issues = results.split('\n').filter((line) => line.trim().length > 0);
       setIssueList(issues);
     }
@@ -66,9 +66,7 @@ function ResultModal({ open, onClose, results, selectedYear, selectedMake, selec
 
   const handlePossibleFixesClick = (issue) => {
     try {
-      // Check if car details are defined before creating the search term
       if (selectedYear && selectedMake && selectedModel) {
-        // Split the issue string into parts based on the format
         const parts = issue.split('. ');
         
         if (parts.length === 2) {

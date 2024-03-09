@@ -37,12 +37,12 @@ function FindIssuesButton({
   }, [selectedMake, selectedYear, selectedModel, selectedSymptoms, customPrompt, toggle]);
 
   const handleFindIssuesClick = async () => {
-    // Check if the form is incomplete
+    //Checks if the form is incomplete
     if (incompleteForm) {
       return;
     }
 
-    // Customize the content based on the toggle state
+    //Customize the content based on the toggle option set
     const content =
       `Based on this car: ${selectedYear} ${selectedMake} ${selectedModel}` +
       `${
@@ -69,14 +69,10 @@ function FindIssuesButton({
     };
 
     try {
-      // Open the modal
+      //Modal results
       setOpenModal(true);
       const response = await makeApiRequest(data);
 
-      // Log the response
-      console.log('Assistant Response:', response);
-
-      // Set the modal response
       setModalResponse(response);
     } catch (error) {
       console.error('Error:', error);
